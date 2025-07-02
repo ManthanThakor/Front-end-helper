@@ -2,8 +2,6 @@
 
 A collection of ready-to-use front-end components, animations, and utilities to speed up your web development workflow.
 
-![Preview](https://via.placeholder.com/800x400?text=Front-end+Helper+Preview)
-
 ## Features ✨
 
 - **Pre-built Components**: Navbars, buttons, cards, loaders, and more
