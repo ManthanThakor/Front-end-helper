@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primary Glow Toggle</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --neutral: #ffffff;
+        --primary-gradient: linear-gradient(45deg, #e6ccff, #7b00ff, #9966ff);
+        --primary-glow: drop-shadow(0 0 5px rgba(123, 0, 255, 0.4));
+        --secondary: rgba(255, 255, 255, 0.75);
+        --tertiary: #00ffc3;
+        --accent: #ff0077;
+        --bg-dark: linear-gradient(
+          180deg,
+          #0a0a1a 0%,
+          #120027 25%,
+          #140830 50%,
+          #10062a 75%,
+          #070714 100%
+        );
+
+        font-size: 16px;
+
+        /* Font sizes */
+        --fs-xxs: 0.75rem;
+        --fs-xs: 0.875rem;
+        --fs-sm: 1rem;
+        --fs-md: 1.125rem;
+        --fs-lg: 1.25rem;
+        --fs-xl: 1.5rem;
+        --fs-xxl: 2rem;
+        --fs-xxxl: 2.5rem;
+
+        /* Font families */
+        --font-primary: "Orbitron", sans-serif;
+        --font-secondary: "Inter", sans-serif;
+        --font-tertiary: "Montserrat", sans-serif;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: var(--font-secondary);
+        background: var(--bg-dark);
+        color: var(--neutral);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      h1 {
+        font-family: var(--font-primary);
+        font-size: var(--fs-xxxl);
+        font-weight: 900;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        position: relative;
+        animation: subtleGlow 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes subtleGlow {
+        0% {
+          filter: drop-shadow(0 0 8px rgba(123, 0, 255, 0.3))
+            drop-shadow(0 0 15px rgba(123, 0, 255, 0.1));
+        }
+        100% {
+          filter: drop-shadow(0 0 12px rgba(123, 0, 255, 0.5))
+            drop-shadow(0 0 20px rgba(123, 0, 255, 0.2))
+            drop-shadow(0 0 25px rgba(123, 0, 255, 0.1));
+        }
+      }
+
+      p {
+        color: var(--secondary);
+        font-size: var(--fs-sm);
+        margin-bottom: 1.5rem;
+        max-width: 500px;
+        line-height: 1.6;
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      button {
+        font-family: var(--font-tertiary);
+        background: linear-gradient(45deg, var(--tertiary), #000000);
+        color: var(--tertiary);
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: var(--fs-xs);
+        font-weight: 500;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 255, 195, 0.3);
+        margin-top: 1rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 255, 195, 0.4);
+      }
+
+      button:hover::before {
+        left: 100%;
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .box {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem;
+        max-width: 600px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1 id="title">Welcome to Manthan's Page</h1>
+      <p>
+        This page demonstrates a refined glow animation for primary text. The
+        glow effect is <span class="highlight">subtle</span> and
+        <span class="highlight">elegant</span>, providing a futuristic aesthetic
+        powered by <strong>Orbitron</strong>.
+      </p>
+      <p>
+        You're currently viewing a page that uses different font roles:
+        <span class="highlight">Orbitron</span> for headlines,
+        <span class="highlight">Inter</span> for readable content, and
+        <span class="highlight">Montserrat</span> for interactive UI like
+        buttons.
+      </p>
+      <button>Explore More</button>
+    </div>
+
+    <script>
+      // Glow is always active
+    </script>
+  </body>
+</html>
