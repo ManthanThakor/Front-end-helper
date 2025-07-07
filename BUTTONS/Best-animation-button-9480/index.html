@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Shine Button with Ripple</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          180deg,
+          #0a0a1a 0%,
+          #120027 25%,
+          #140830 50%,
+          #10062a 75%,
+          #070714 100%
+        );
+        font-family: Arial, sans-serif;
+      }
+
+      .glow-btn {
+        position: relative;
+        padding: 16px 36px;
+        font-size: 18px;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid transparent;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        z-index: 1;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease, transform 0.2s ease;
+      }
+
+      .glow-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, #ff00f7, #00f7ff, #6400ff, #ff00f7);
+        background-size: 400%;
+        animation: borderLoop 5s linear infinite;
+        z-index: -2;
+        filter: blur(8px);
+      }
+
+      .glow-btn::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: rgba(7, 7, 26, 0.932);
+        border-radius: 10px;
+        z-index: -1;
+        transition: background 0.6s ease;
+      }
+
+      .glow-btn:hover::after {
+        background: rgba(9, 2, 15, 0.905);
+      }
+
+      .glow-btn span {
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(90deg, #ffffff, #a855ff, #ffffff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 2.5s linear forwards;
+      }
+
+      .glow-btn:hover span {
+        animation: textShine 2.5s linear infinite;
+      }
+
+      .glow-btn .shine {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          rgba(116, 0, 248, 0.326) 0%,
+          rgba(87, 2, 113, 0.4) 50%,
+          rgba(215, 1, 215, 0.384) 100%
+        );
+        transform: skewX(-20deg);
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .glow-btn:hover .shine {
+        animation: shineMove 1s ease-in-out forwards;
+      }
+
+      .glow-btn:not(:hover) .shine {
+        animation: shineBack 1s ease-in-out forwards;
+      }
+
+      .glow-btn:active {
+        animation: clickBounce 0.3s ease;
+      }
+
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        transform: scale(0);
+        animation: rippleEffect 0.6s linear;
+        background: rgba(255, 255, 255, 0.3);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Animations */
+      @keyframes borderLoop {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes shineMove {
+        0% {
+          left: -75%;
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          left: 125%;
+          opacity: 0;
+        }
+      }
+
+      @keyframes shineBack {
+        0% {
+          left: 125%;
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          left: -75%;
+          opacity: 0;
+        }
+      }
+
+      @keyframes textShine {
+        0% {
+          background-position: 200% center;
+        }
+        100% {
+          background-position: -200% center;
+        }
+      }
+
+      @keyframes clickBounce {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.92);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes rippleEffect {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="glow-btn" onclick="createRipple(event)">
+      <span>Neon Shine</span>
+      <div class="shine"></div>
+    </button>
+
+    <script>
+      function createRipple(e) {
+        const button = e.currentTarget;
+        const circle = document.createElement("span");
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        circle.classList.add("ripple");
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${
+          e.clientX - button.getBoundingClientRect().left - radius
+        }px`;
+        circle.style.top = `${
+          e.clientY - button.getBoundingClientRect().top - radius
+        }px`;
+
+        const ripple = button.getElementsByClassName("ripple")[0];
+
+        if (ripple) {
+          ripple.remove();
+        }
+
+        button.appendChild(circle);
+      }
+    </script>
+  </body>
+</html>
