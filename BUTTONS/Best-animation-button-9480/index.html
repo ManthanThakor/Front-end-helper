@@ -9,8 +9,10 @@
         min-height: 100vh;
         margin: 0;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 50px;
         background: linear-gradient(
           180deg,
           #0a0a1a 0%,
@@ -383,29 +385,247 @@
           opacity: 0;
         }
       }
+
+      .theme-section {
+        text-align: center;
+        padding: 30px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .theme-section.light {
+        background: #ffffff;
+      }
+
+      .theme-title {
+        margin-bottom: 30px;
+        font-size: 24px;
+        color: #ffffff;
+      }
+
+      .theme-section.light .theme-title {
+        color: #1f2937;
+      }
+
+      /* Light Theme Button Styles */
+      .glow-btn.light-rose::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, #f43f5e, #fb7185, #fda4af, #f43f5e);
+        background-size: 400%;
+        animation: borderLoop 5s linear infinite;
+        z-index: -2;
+        filter: blur(8px);
+      }
+
+      .glow-btn.light-rose::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        z-index: -1;
+        transition: background 0.6s ease;
+      }
+
+      .glow-btn.light-rose span {
+        background: linear-gradient(90deg, #e11d48, #fb7185, #e11d48);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 3s linear forwards;
+      }
+
+      .glow-btn.light-sky::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, #0ea5e9, #38bdf8, #7dd3fc, #0ea5e9);
+        background-size: 400%;
+        animation: borderLoop 5s linear infinite;
+        z-index: -2;
+        filter: blur(8px);
+      }
+
+      .glow-btn.light-sky::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        z-index: -1;
+        transition: background 0.6s ease;
+      }
+
+      .glow-btn.light-sky span {
+        background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 3s linear forwards;
+      }
+
+      .glow-btn.light-emerald::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, #10b981, #34d399, #6ee7b7, #10b981);
+        background-size: 400%;
+        animation: borderLoop 5s linear infinite;
+        z-index: -2;
+        filter: blur(8px);
+      }
+
+      .glow-btn.light-emerald::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        z-index: -1;
+        transition: background 0.6s ease;
+      }
+
+      .glow-btn.light-emerald span {
+        background: linear-gradient(90deg, #059669, #34d399, #059669);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 3s linear forwards;
+      }
+
+      .glow-btn.light-amber::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, #d97706, #fbbf24, #fcd34d, #d97706);
+        background-size: 400%;
+        animation: borderLoop 5s linear infinite;
+        z-index: -2;
+        filter: blur(8px);
+      }
+
+      .glow-btn.light-amber::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        z-index: -1;
+        transition: background 0.6s ease;
+      }
+
+      .glow-btn.light-amber span {
+        background: linear-gradient(90deg, #b45309, #fbbf24, #b45309);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 3s linear forwards;
+      }
+
+      /* Light theme hover effects */
+      .theme-section.light .glow-btn:hover::after {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .theme-section.light .glow-btn:hover span {
+        animation: textShine 2s linear infinite;
+      }
+
+      .theme-section.light .glow-btn .shine {
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.3) 50%,
+          rgba(255, 255, 255, 0.8) 100%
+        );
+      }
+
+      /* Fix for webkit background-clip compatibility */
+      .glow-btn span {
+        background-clip: text;
+      }
     </style>
   </head>
   <body>
-    <div class="button-group">
-      <button class="glow-btn original" onclick="createRipple(event)">
-        <span>Purple/Pink</span>
-        <div class="shine"></div>
-      </button>
-      
-      <button class="glow-btn blue" onclick="createRipple(event)">
-        <span>Blue/Cyan</span>
-        <div class="shine"></div>
-      </button>
-      
-      <button class="glow-btn green" onclick="createRipple(event)">
-        <span>Green/Emerald</span>
-        <div class="shine"></div>
-      </button>
-      
-      <button class="glow-btn gold" onclick="createRipple(event)">
-        <span>Gold/Orange</span>
-        <div class="shine"></div>
-      </button>
+    <div class="theme-section dark">
+      <h2 class="theme-title">Dark Theme</h2>
+      <div class="button-group">
+        <button class="glow-btn original" onclick="createRipple(event)">
+          <span>Purple/Pink</span>
+          <div class="shine"></div>
+        </button>
+        
+        <button class="glow-btn blue" onclick="createRipple(event)">
+          <span>Blue/Cyan</span>
+          <div class="shine"></div>
+        </button>
+        
+        <button class="glow-btn green" onclick="createRipple(event)">
+          <span>Green/Emerald</span>
+          <div class="shine"></div>
+        </button>
+        
+        <button class="glow-btn gold" onclick="createRipple(event)">
+          <span>Gold/Orange</span>
+          <div class="shine"></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="theme-section light">
+      <h2 class="theme-title">Light Theme</h2>
+      <div class="button-group">
+        <button class="glow-btn light-rose" onclick="createRipple(event)">
+          <span>Rose</span>
+          <div class="shine"></div>
+        </button>
+        
+        <button class="glow-btn light-sky" onclick="createRipple(event)">
+          <span>Sky</span>
+          <div class="shine"></div>
+        </button>
+        
+        <button class="glow-btn light-emerald" onclick="createRipple(event)">
+          <span>Emerald</span>
+          <div class="shine"></div>
+        </button>
+        
+        <button class="glow-btn light-amber" onclick="createRipple(event)">
+          <span>Amber</span>
+          <div class="shine"></div>
+        </button>
+      </div>
     </div>
 
     <script>
