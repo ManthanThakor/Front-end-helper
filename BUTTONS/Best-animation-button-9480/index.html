@@ -416,7 +416,7 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(45deg, #f43f5e, #fb7185, #fda4af, #f43f5e);
+        background: linear-gradient(45deg, #ff1b6b, #ff8c9c, #ff45d1, #ff1b6b);
         background-size: 400%;
         animation: borderLoop 5s linear infinite;
         z-index: -2;
@@ -436,13 +436,41 @@
         transition: background 0.6s ease;
       }
 
+      .glow-btn.light-rose:hover::after {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
       .glow-btn.light-rose span {
-        background: linear-gradient(90deg, #e11d48, #fb7185, #e11d48);
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(90deg, #ff1b6b, #ff45d1, #ff1b6b);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: textShine 3s linear forwards;
+        animation: textShine 2.5s linear forwards;
+      }
+
+      .glow-btn.light-rose:hover span {
+        animation: textShine 2.5s linear infinite;
+      }
+
+      .glow-btn.light-rose .shine {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 27, 107, 0.4) 0%,
+          rgba(255, 69, 209, 0.5) 50%,
+          rgba(255, 27, 107, 0.4) 100%
+        );
+        transform: skewX(-20deg);
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0;
       }
 
       .glow-btn.light-sky::before {
@@ -452,9 +480,9 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(45deg, #0ea5e9, #38bdf8, #7dd3fc, #0ea5e9);
+        background: linear-gradient(45deg, #0095ff, #00e1ff, #00b7ff, #0095ff);
         background-size: 400%;
-        animation: borderLoop 5s linear infinite;
+        animation: borderLoop 4s linear infinite reverse;
         z-index: -2;
         filter: blur(8px);
       }
@@ -472,13 +500,41 @@
         transition: background 0.6s ease;
       }
 
+      .glow-btn.light-sky:hover::after {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
       .glow-btn.light-sky span {
-        background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7);
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(90deg, #0095ff, #00d4ff, #0095ff);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: textShine 3s linear forwards;
+      }
+
+      .glow-btn.light-sky:hover span {
+        animation: textShine 3s linear infinite;
+      }
+
+      .glow-btn.light-sky .shine {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          rgba(0, 149, 255, 0.4) 0%,
+          rgba(0, 225, 255, 0.5) 50%,
+          rgba(0, 149, 255, 0.4) 100%
+        );
+        transform: skewX(20deg);
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0;
       }
 
       .glow-btn.light-emerald::before {
@@ -488,9 +544,9 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(45deg, #10b981, #34d399, #6ee7b7, #10b981);
+        background: linear-gradient(45deg, #00e676, #69f0ae, #00ffb3, #00e676);
         background-size: 400%;
-        animation: borderLoop 5s linear infinite;
+        animation: borderLoop 6s linear infinite;
         z-index: -2;
         filter: blur(8px);
       }
@@ -508,13 +564,41 @@
         transition: background 0.6s ease;
       }
 
+      .glow-btn.light-emerald:hover::after {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
       .glow-btn.light-emerald span {
-        background: linear-gradient(90deg, #059669, #34d399, #059669);
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(90deg, #00e676, #69f0ae, #00e676);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: textShine 3s linear forwards;
+        animation: textShine 2s linear forwards;
+      }
+
+      .glow-btn.light-emerald:hover span {
+        animation: textShine 2s linear infinite;
+      }
+
+      .glow-btn.light-emerald .shine {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          rgba(0, 230, 118, 0.4) 0%,
+          rgba(105, 240, 174, 0.5) 50%,
+          rgba(0, 230, 118, 0.4) 100%
+        );
+        transform: skewX(-30deg);
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0;
       }
 
       .glow-btn.light-amber::before {
@@ -524,9 +608,9 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(45deg, #d97706, #fbbf24, #fcd34d, #d97706);
+        background: linear-gradient(45deg, #ffa000, #ffcf40, #ffd740, #ffa000);
         background-size: 400%;
-        animation: borderLoop 5s linear infinite;
+        animation: borderLoop 3.5s linear infinite;
         z-index: -2;
         filter: blur(8px);
       }
@@ -544,31 +628,55 @@
         transition: background 0.6s ease;
       }
 
+      .glow-btn.light-amber:hover::after {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
       .glow-btn.light-amber span {
-        background: linear-gradient(90deg, #b45309, #fbbf24, #b45309);
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(90deg, #ffa000, #ffd740, #ffa000);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: textShine 3s linear forwards;
+        animation: textShine 2.8s linear forwards;
+      }
+
+      .glow-btn.light-amber:hover span {
+        animation: textShine 2.8s linear infinite;
+      }
+
+      .glow-btn.light-amber .shine {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 160, 0, 0.4) 0%,
+          rgba(255, 215, 64, 0.5) 50%,
+          rgba(255, 160, 0, 0.4) 100%
+        );
+        transform: skewX(15deg);
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0;
       }
 
       /* Light theme hover effects */
-      .theme-section.light .glow-btn:hover::after {
-        background: rgba(255, 255, 255, 0.8);
+      .theme-section.light .glow-btn {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.05);
       }
 
-      .theme-section.light .glow-btn:hover span {
-        animation: textShine 2s linear infinite;
+      .theme-section.light .glow-btn:hover .shine {
+        animation: shineMove 0.8s ease-in-out forwards;
       }
 
-      .theme-section.light .glow-btn .shine {
-        background: linear-gradient(
-          120deg,
-          rgba(255, 255, 255, 0.8) 0%,
-          rgba(255, 255, 255, 0.3) 50%,
-          rgba(255, 255, 255, 0.8) 100%
-        );
+      .theme-section.light .glow-btn:active {
+        animation: clickBounce 0.3s ease;
       }
 
       /* Fix for webkit background-clip compatibility */
